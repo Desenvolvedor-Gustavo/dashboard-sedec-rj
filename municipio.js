@@ -38,10 +38,7 @@ fetch(url)
 
     // Plano de Contingência
     document.getElementById("plano_contingencia").innerText =
-      municipio.plano_contingencia || "Não informado";
-    document.getElementById("plano_riscos").innerText =
-      municipio.plano_contingencia || "—";
-    document.getElementById("plano_data").innerText = "—";
+      municipio.plano_contingencia || "Não informado";    
 
     // NUPDEC
     document.getElementById("nupdec").innerText =
