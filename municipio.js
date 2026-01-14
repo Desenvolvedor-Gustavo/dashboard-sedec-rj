@@ -10,12 +10,7 @@ if (!municipioSelecionado) {
 const url = `https://opensheet.elk.sh/${SHEET_ID}/municipios`;
 
 fetch(url)
-  .then(res => {
-    if (!res.ok) {
-      throw new Error("Erro HTTP: " + res.status);
-    }
-    return res.json();
-  })
+  .then(res => res.json())
   .then(dados => {
 
     const municipio = dados.find(m =>
@@ -24,38 +19,43 @@ fetch(url)
     );
 
     if (!municipio) {
-      alert("Município não encontrado na planilha.");
+      alert("Município não encontrado.");
       return;
     }
 
+    // Cabeçalho
     document.getElementById("titulo").innerText = municipio.municipio;
     document.getElementById("redec").innerText = "REDEC: " + municipio.redec;
 
-    document.getElementById("pmrr").innerText = municipio.pmrr || "Não informado";
+    // PMRR
+    document.getElementById("pmrr").innerText = municipio.pmrr || "Não";
     document.getElementById("pmrr_data").innerText = municipio.pmrr_data || "—";
 
-    document.getElementById("simulados").innerText = municipio.simulados_2025 || "Não";
-    document.getElementById("simulados_qtd").innerText = municipio.simulados_qtd || "0";
-    document.getElementById("simulados_tipo").innerText = municipio.simulados_tipo || "—";
+    // Simulados
+    document.getElementById("simulados").innerText = municipio.simulado || "Não";
+    document.getElementById("simulados_qtd").innerText = municipio.qnt_simulado || "0";
+    document.getElementById("simulados_tipo").innerText = municipio.tipo_simulado || "—";
 
+    // Plano de Contingência
     document.getElementById("plano_contingencia").innerText =
       municipio.plano_contingencia || "Não informado";
     document.getElementById("plano_riscos").innerText =
-      municipio.plano_contingencia_riscos || "—";
-    document.getElementById("plano_data").innerText =
-      municipio.plano_contingencia_data || "—";
+      municipio.plano_contingencia || "—";
+    document.getElementById("plano_data").innerText = "—";
 
-    document.getElementById("nupdec").innerText = municipio.nupdec || "Não";
-    document.getElementById("nupdec_qtd").innerText = municipio.nupdec_qtd || "0";
-    document.getElementById("nupdec_datas").innerText = municipio.nupdec_datas || "—";
+    // NUPDEC
+    document.getElementById("nupdec").innerText =
+      municipio.nupdec && municipio.nupdec !== "0" ? "Sim" : "Não";
+    document.getElementById("nupdec_qtd").innerText = municipio.nupdec || "0";
+    document.getElementById("nupdec_datas").innerText = "—";
     document.getElementById("colab_nupdec").innerText = municipio.colab_nupdec || "0";
 
+    // S2ID
     document.getElementById("colab_s2id").innerText = municipio.colab_s2id || "0";
 
-    document.getElementById("carta_risco").innerText =
-      municipio.carta_risco || "Não";
-    document.getElementById("carta_risco_data").innerText =
-      municipio.carta_risco_data || "—";
+    // Carta de Risco
+    document.getElementById("carta_risco").innerText = municipio.carta_risco || "Não";
+    document.getElementById("carta_risco_data").innerText = "—";
   })
   .catch(err => {
     console.error(err);
