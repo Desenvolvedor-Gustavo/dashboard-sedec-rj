@@ -10,21 +10,26 @@ if (!municipioSelecionado) {
 const url = `https://opensheet.elk.sh/${SHEET_ID}/municipios`;
 
 fetch(url)
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) {
+      throw new Error("Erro HTTP: " + res.status);
+    }
+    return res.json();
+  })
   .then(dados => {
 
     const municipio = dados.find(m =>
+      m.municipio &&
       m.municipio.toLowerCase() === municipioSelecionado.toLowerCase()
     );
 
     if (!municipio) {
-      alert("Município não encontrado.");
+      alert("Município não encontrado na planilha.");
       return;
     }
 
     document.getElementById("titulo").innerText = municipio.municipio;
-    document.getElementById("redec").innerText =
-      "REDEC: " + municipio.redec;
+    document.getElementById("redec").innerText = "REDEC: " + municipio.redec;
 
     document.getElementById("pmrr").innerText = municipio.pmrr || "Não informado";
     document.getElementById("pmrr_data").innerText = municipio.pmrr_data || "—";
