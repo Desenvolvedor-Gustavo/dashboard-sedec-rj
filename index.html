@@ -14,35 +14,56 @@
 
   <main class="mapa-container">
 
-    <svg viewBox="0 0 600 450" class="mapa-rj">
-
-      <!-- REDEC NOROESTE -->
+    <svg viewBox="0 0 600 600" class="mapa-rj" aria-label="Mapa do Estado do Rio de Janeiro">
+  
+      <!-- Contorno do Estado (simplificado) -->
+      <path
+        d="M80 120 L180 60 L300 80 L420 140 L520 220 L500 340 L420 420 L300 460 L180 420 L100 320 Z"
+        fill="#CFD8DC"
+        stroke="#90A4AE"
+        stroke-width="2"
+      />
+  
+      <!-- ================= REDEC NOROESTE ================= -->
       <a href="redec.html?redec=Noroeste">
-        <rect x="60" y="60" width="180" height="120" class="redec" />
-        <text x="150" y="125" class="label">NOROESTE</text>
+        <path
+          d="M120 160 L220 120 L300 150 L260 220 L180 240 L120 200 Z"
+          class="redec"
+        />
+        <text x="200" y="190" class="label">NOROESTE</text>
       </a>
-
-      <!-- REDEC NORTE -->
-      <a href="#">
-        <rect x="260" y="40" width="220" height="100" class="redec" />
-        <text x="370" y="95" class="label">NORTE</text>
+  
+      <!-- ================= REDEC NORTE ================= -->
+      <a href="redec.html?redec=Norte">
+        <path
+          d="M260 120 L360 140 L420 200 L340 240 L260 220 Z"
+          class="redec"
+        />
+        <text x="340" y="190" class="label">NORTE</text>
       </a>
-
-      <!-- REDEC SERRANA -->
-      <a href="#">
-        <rect x="200" y="180" width="220" height="120" class="redec" />
-        <text x="310" y="245" class="label">SERRANA</text>
+  
+      <!-- ================= REDEC SERRANA ================= -->
+      <a href="redec.html?redec=Serrana">
+        <path
+          d="M220 240 L340 240 L380 300 L300 340 L220 300 Z"
+          class="redec"
+        />
+        <text x="300" y="290" class="label">SERRANA</text>
       </a>
-
-      <!-- REDEC METROPOLITANA -->
-      <a href="#">
-        <rect x="360" y="300" width="200" height="100" class="redec" />
-        <text x="460" y="355" class="label">METROPOLITANA</text>
+  
+      <!-- ================= REDEC METROPOLITANA ================= -->
+      <a href="redec.html?redec=Metropolitana">
+        <path
+          d="M360 300 L460 320 L440 380 L360 360 Z"
+          class="redec"
+        />
+        <text x="410" y="350" class="label">METROP.</text>
       </a>
-
+  
     </svg>
-
+  
   </main>
+
 
 </body>
 </html>
