@@ -2,48 +2,42 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Indicadores Municipais – SEDEC RJ</title>
+  <title>Município – SEDEC RJ</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<header class="topo">
   <h1 id="nome_municipio"></h1>
-  <p><strong>REDEC:</strong> <span id="redec"></span></p>
+  <p id="redec"></p>
+</header>
 
-  <div class="bloco">
-    <h3>Plano Municipal de Redução de Risco (PMRR)</h3>
-    <p><strong>Possui:</strong> <span id="pmrr"></span></p>
-    <p><strong>Data da última atualização:</strong> <span id="pmrr_data"></span></p>
-  </div>
+<main class="conteudo">
 
-  <div class="bloco">
-    <h3>Simulados</h3>
-    <p><strong>Realizou em 2025:</strong> <span id="simulado"></span></p>
-    <p><strong>Quantidade:</strong> <span id="qnt_simulado"></span></p>
-    <p><strong>Tipo:</strong> <span id="tipo_simulado"></span></p>
-  </div>
+  <section class="bloco">
+    <h2>Planejamento</h2>
+    <div class="linha"><span>PMRR</span><span id="pmrr"></span></div>
+    <div class="linha"><span>Data PMRR</span><span id="pmrr_data"></span></div>
+    <div class="linha"><span>Plano de Contingência</span><span id="plano_contingencia"></span></div>
+  </section>
 
-  <div class="bloco">
-    <h3>Plano de Contingência</h3>
-    <p><strong>Possui:</strong> <span id="plano_contingencia"></span></p>
-  </div>
+  <section class="bloco">
+    <h2>Capacitação</h2>
+    <div class="linha"><span>Simulados em 2025</span><span id="simulado"></span></div>
+    <div class="linha"><span>Quantidade</span><span id="qnt_simulado"></span></div>
+    <div class="linha"><span>Tipo</span><span id="tipo_simulado"></span></div>
+    <div class="linha"><span>Colaboradores S2ID</span><span id="colab_s2id"></span></div>
+  </section>
 
-  <div class="bloco">
-    <h3>NUPDEC</h3>
-    <p><strong>Quantidade de núcleos:</strong> <span id="nupdec"></span></p>
-    <p><strong>Colaboradores capacitados:</strong> <span id="colab_nupdec"></span></p>
-  </div>
+  <section class="bloco">
+    <h2>Estrutura Comunitária</h2>
+    <div class="linha"><span>NUPDECs</span><span id="nupdec"></span></div>
+    <div class="linha"><span>Colaboradores NUPDEC</span><span id="colab_nupdec"></span></div>
+    <div class="linha"><span>Carta de Risco Geológico</span><span id="carta_risco"></span></div>
+  </section>
 
-  <div class="bloco">
-    <h3>S2ID</h3>
-    <p><strong>Colaboradores capacitados:</strong> <span id="colab_s2id"></span></p>
-  </div>
+</main>
 
-  <div class="bloco">
-    <h3>Carta de Risco Geológico</h3>
-    <p><strong>Possui:</strong> <span id="carta_risco"></span></p>
-  </div>
-
-  <script src="municipio.js"></script>
+<script src="municipio.js"></script>
 </body>
 </html>
