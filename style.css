@@ -105,3 +105,26 @@ body {
 .card a:hover {
   opacity: 0.9;
 }
+
+.card.resumo {
+  cursor: pointer;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.ok {
+  color: #2e7d32;
+}
+
+.status.parcial {
+  color: #f9a825;
+}
+
+.status.critico {
+  color: #c62828;
+}
