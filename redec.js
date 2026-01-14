@@ -23,23 +23,38 @@ fetch(url)
     }
 
     municipios.forEach(m => {
-      const card = document.createElement("div");
-      card.className = "card";
 
+      let pontos = 0;
+      if (m.pmrr === "Sim") pontos++;
+      if (m.plano_contingencia && m.plano_contingencia.trim() !== "") pontos++;
+      if (parseInt(m.nupdec) > 0) pontos++;
+    
+      let statusClasse = "critico";
+      let statusTexto = "Estrutura crítica";
+    
+      if (pontos === 3) {
+        statusClasse = "ok";
+        statusTexto = "Estrutura adequada";
+      } else if (pontos === 2) {
+        statusClasse = "parcial";
+        statusTexto = "Estrutura parcial";
+      }
+    
+      const card = document.createElement("div");
+      card.className = "card resumo";
+      card.onclick = () => {
+        window.location.href =
+          `municipio.html?municipio=${encodeURIComponent(m.municipio)}`;
+      };
+    
       card.innerHTML = `
         <h3>${m.municipio}</h3>
-        <p>PMRR: <span class="${m.pmrr === "Sim" ? "ok" : "no"}">${m.pmrr}</span></p>
-        <p>Simulados: <span class="${m.simulado === "Sim" ? "ok" : "no"}">${m.simulado}</span></p>
-        <p>Plano de Contingência: <strong>${m.plano_contingencia || "Não informado"}</strong></p>
-        <p>NUPDEC: ${m.nupdec}</p>
-        <p>Carta de Risco: <span class="${m.carta_risco === "Sim" ? "ok" : "no"}">${m.carta_risco}</span></p>
-        <a href="municipio.html?municipio=${encodeURIComponent(m.municipio)}">
-          Ver detalhes
-        </a>
+        <span class="status ${statusClasse}">● ${statusTexto}</span>
       `;
-
+    
       container.appendChild(card);
     });
+
   })
   .catch(err => {
     console.error(err);
