@@ -6,7 +6,7 @@
   --azul-apoio: #1E88E5;
   --laranja: #F57C00;
   --cinza-fundo: #ECEFF1;
-  --cinza-borda: #E0E0E0;
+  --cinza-borda: #DADFE3;
   --texto-principal: #263238;
   --texto-secundario: #546E7A;
 }
@@ -30,7 +30,7 @@ body {
    ========================= */
 .topo {
   background-color: var(--azul-escuro);
-  color: white;
+  color: #ffffff;
   padding: 20px;
   text-align: center;
 }
@@ -58,27 +58,37 @@ body {
 
 .mapa-rj {
   width: 100%;
-  max-width: 720px;
-  background-color: white;
+  max-width: 900px;
+  height: auto;
+  background-color: #ffffff;
   border: 1px solid var(--cinza-borda);
-  padding: 16px;
+  padding: 12px;
 }
 
+/* IMPORTANTE: SVG INLINE */
+.mapa-rj svg {
+  width: 100%;
+  height: auto;
+}
 
+/* =========================
+   REDECs (SVG)
+   ========================= */
 .redec {
   fill: var(--azul-apoio);
-  stroke: white;
+  stroke: #ffffff;
   stroke-width: 2;
   cursor: pointer;
-  transition: fill 0.2s;
+  transition: fill 0.2s ease;
 }
 
 .redec:hover {
   fill: var(--laranja);
 }
 
+/* Texto dentro do SVG */
 .label {
-  fill: white;
+  fill: #ffffff;
   font-size: 13px;
   font-weight: bold;
   text-anchor: middle;
@@ -95,7 +105,7 @@ body {
 }
 
 /* =========================
-   CARDS — REDEC
+   CARDS — REDEC / MUNICÍPIOS
    ========================= */
 .cards {
   display: grid;
@@ -105,17 +115,17 @@ body {
 }
 
 .card {
-  background: white;
+  background: #ffffff;
   border: 1px solid var(--cinza-borda);
   border-left: 6px solid var(--azul-escuro);
   padding: 16px;
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .card h3 {
@@ -134,7 +144,7 @@ body {
    PÁGINA DO MUNICÍPIO
    ========================= */
 .bloco {
-  background: white;
+  background: #ffffff;
   margin-bottom: 24px;
   padding: 16px 18px;
   border-left: 6px solid var(--azul-escuro);
