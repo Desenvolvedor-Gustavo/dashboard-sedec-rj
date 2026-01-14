@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard SEDEC RJ</title>
-  <meta http-equiv="refresh" content="0; url=municipio.html?municipio=Itaperuna">
+  <title>SEDEC RJ – Regiões de Defesa Civil</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <p>Redirecionando...</p>
+
+  <header class="topo">
+    <h1>Defesa Civil do Estado do Rio de Janeiro</h1>
+    <p>Selecione uma Região de Defesa Civil (REDEC)</p>
+  </header>
+
+  <main class="mapa-container">
+
+    <svg viewBox="0 0 600 450" class="mapa-rj">
+
+      <!-- REDEC NOROESTE -->
+      <a href="redec.html?redec=Noroeste">
+        <rect x="60" y="60" width="180" height="120" class="redec" />
+        <text x="150" y="125" class="label">NOROESTE</text>
+      </a>
+
+      <!-- REDEC NORTE -->
+      <a href="#">
+        <rect x="260" y="40" width="220" height="100" class="redec" />
+        <text x="370" y="95" class="label">NORTE</text>
+      </a>
+
+      <!-- REDEC SERRANA -->
+      <a href="#">
+        <rect x="200" y="180" width="220" height="120" class="redec" />
+        <text x="310" y="245" class="label">SERRANA</text>
+      </a>
+
+      <!-- REDEC METROPOLITANA -->
+      <a href="#">
+        <rect x="360" y="300" width="200" height="100" class="redec" />
+        <text x="460" y="355" class="label">METROPOLITANA</text>
+      </a>
+
+    </svg>
+
+  </main>
+
 </body>
 </html>
