@@ -59,7 +59,11 @@ body {
 .mapa-rj {
   width: 100%;
   max-width: 720px;
+  background-color: white;
+  border: 1px solid var(--cinza-borda);
+  padding: 16px;
 }
+
 
 .redec {
   fill: var(--azul-apoio);
