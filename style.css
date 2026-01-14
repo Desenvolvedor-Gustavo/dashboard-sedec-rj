@@ -1,0 +1,52 @@
+:root {
+  --azul-escuro: #0A2A43;
+  --azul-claro: #1E88E5;
+  --laranja: #F57C00;
+  --cinza: #ECEFF1;
+  --texto: #263238;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cinza);
+  color: var(--texto);
+}
+
+.topo {
+  background-color: var(--azul-escuro);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.mapa-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.mapa-rj {
+  width: 100%;
+  max-width: 700px;
+}
+
+.redec {
+  fill: var(--azul-claro);
+  stroke: white;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.redec:hover {
+  fill: var(--laranja);
+}
+
+.label {
+  fill: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-anchor: middle;
+  pointer-events: none;
+}
