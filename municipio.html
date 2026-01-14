@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>SEDEC RJ – Município</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+    }
+    header {
+      background: #0b3c5d;
+      color: white;
+      padding: 16px;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .bloco {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .bloco h3 {
+      margin-top: 0;
+      color: #0b3c5d;
+    }
+    .linha {
+      margin-bottom: 8px;
+    }
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2 id="titulo">Município</h2>
+  <small id="redec"></small>
+</header>
+
+<main>
+
+  <div class="bloco">
+    <h3>Plano Municipal de Redução de Risco (PMRR)</h3>
+    <div class="linha"><span class="label">Possui:</span> <span id="pmrr"></span></div>
+    <div class="linha"><span class="label">Última atualização:</span> <span id="pmrr_data"></span></div>
+  </div>
+
+  <div class="bloco">
+    <h3>Simulados (2025)</h3>
+    <div class="linha"><span class="label">Executou:</span> <span id="simulados"></span></div>
+    <div class="linha"><span class="label">Quantidade:</span> <span id="simulados_qtd"></span></div>
+    <div class="linha"><span class="label">Tipos:</span> <span id="simulados_tipo"></span></div>
+  </div>
+
+  <div class="bloco">
+    <h3>Plano de Contingência</h3>
+    <div class="linha"><span class="label">Possui:</span> <span id="plano_contingencia"></span></div>
+    <div class="linha"><span class="label">Riscos:</span> <span id="plano_riscos"></span></div>
+    <div class="linha"><span class="label">Última atualização:</span> <span id="plano_data"></span></div>
+  </div>
+
+  <div class="bloco">
+    <h3>NUPDEC</h3>
+    <div class="linha"><span class="label">Situação:</span> <span id="nupdec"></span></div>
+    <div class="linha"><span class="label">Quantidade:</span> <span id="nupdec_qtd"></span></div>
+    <div class="linha"><span class="label">Datas de criação:</span> <span id="nupdec_datas"></span></div>
+    <div class="linha"><span class="label">Colaboradores capacitados:</span> <span id="colab_nupdec"></span></div>
+  </div>
+
+  <div class="bloco">
+    <h3>S2ID</h3>
+    <div class="linha"><span class="label">Colaboradores com acesso:</span> <span id="colab_s2id"></span></div>
+  </div>
+
+  <div class="bloco">
+    <h3>Carta de Risco Geológico</h3>
+    <div class="linha"><span class="label">Possui:</span> <span id="carta_risco"></span></div>
+    <div class="linha"><span class="label">Última atualização:</span> <span id="carta_risco_data"></span></div>
+  </div>
+
+  <small>
+    Painel informativo. Dados declaratórios fornecidos pelos municípios à Defesa Civil.
+  </small>
+
+</main>
+
+<script src="municipio.js"></script>
+</body>
+</html>
