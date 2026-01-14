@@ -23,23 +23,6 @@ fetch(url)
     }
 
     municipios.forEach(m => {
-
-      let pontos = 0;
-      if (m.pmrr === "Sim") pontos++;
-      if (m.plano_contingencia && m.plano_contingencia.trim() !== "") pontos++;
-      if (parseInt(m.nupdec) > 0) pontos++;
-    
-      let statusClasse = "critico";
-      let statusTexto = "Estrutura crítica";
-    
-      if (pontos === 3) {
-        statusClasse = "ok";
-        statusTexto = "Estrutura adequada";
-      } else if (pontos === 2) {
-        statusClasse = "parcial";
-        statusTexto = "Estrutura parcial";
-      }
-    
       const card = document.createElement("div");
       card.className = "card resumo";
       card.onclick = () => {
@@ -49,11 +32,12 @@ fetch(url)
     
       card.innerHTML = `
         <h3>${m.municipio}</h3>
-        <span class="status ${statusClasse}">● ${statusTexto}</span>
+        <p class="subtitulo">Município da REDEC ${redecSelecionada}</p>
       `;
     
       container.appendChild(card);
     });
+
 
   })
   .catch(err => {
