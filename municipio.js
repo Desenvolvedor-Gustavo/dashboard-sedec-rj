@@ -29,40 +29,33 @@ fetch(url)
 
     // PMRR
     document.getElementById("pmrr").innerText = municipio.pmrr || "Não";
-    document.getElementById("pmrr_data").innerText =
-      municipio.pmrr_data && municipio.pmrr_data !== ""
-        ? municipio.pmrr_data
-        : "Não informado";
+    document.getElementById("pmrr_data").innerText = municipio.pmrr_data || "—";
 
     // Simulados
     document.getElementById("simulados").innerText = municipio.simulado || "Não";
-    document.getElementById("simulados_qtd").innerText =
-      municipio.qnt_simulado && municipio.qnt_simulado !== ""
-        ? municipio.qnt_simulado
-        : "0";
-    document.getElementById("simulados_tipo").innerText =
-      municipio.tipo_simulado && municipio.tipo_simulado !== ""
-        ? municipio.tipo_simulado
-        : "—";
+    document.getElementById("simulados_qtd").innerText = municipio.qnt_simulado || "0";
+    document.getElementById("simulados_tipo").innerText = municipio.tipo_simulado || "—";
 
-    // Plano de Contingência (mostrar texto completo)
+    // Plano de Contingência
     document.getElementById("plano_contingencia").innerText =
-      municipio.plano_contingencia && municipio.plano_contingencia.trim() !== ""
-        ? municipio.plano_contingencia
-        : "Não informado";
+      municipio.plano_contingencia || "Não informado";
+    document.getElementById("plano_riscos").innerText =
+      municipio.plano_contingencia || "—";
+    document.getElementById("plano_data").innerText = "—";
 
     // NUPDEC
+    document.getElementById("nupdec").innerText =
+      municipio.nupdec && municipio.nupdec !== "0" ? "Sim" : "Não";
     document.getElementById("nupdec_qtd").innerText = municipio.nupdec || "0";
-    document.getElementById("colab_nupdec").innerText =
-      municipio.colab_nupdec || "0";
+    document.getElementById("nupdec_datas").innerText = "—";
+    document.getElementById("colab_nupdec").innerText = municipio.colab_nupdec || "0";
 
     // S2ID
-    document.getElementById("colab_s2id").innerText =
-      municipio.colab_s2id || "0";
+    document.getElementById("colab_s2id").innerText = municipio.colab_s2id || "0";
 
     // Carta de Risco
-    document.getElementById("carta_risco").innerText =
-      municipio.carta_risco || "Não";
+    document.getElementById("carta_risco").innerText = municipio.carta_risco || "Não";
+    document.getElementById("carta_risco_data").innerText = "—";
   })
   .catch(err => {
     console.error(err);
