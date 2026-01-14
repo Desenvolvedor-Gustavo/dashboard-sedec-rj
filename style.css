@@ -50,3 +50,58 @@ body {
   text-anchor: middle;
   pointer-events: none;
 }
+
+.conteudo {
+  padding: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  border-left: 6px solid var(--azul-claro);
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  color: var(--azul-escuro);
+  font-size: 18px;
+}
+
+.card p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.card .ok {
+  color: green;
+  font-weight: bold;
+}
+
+.card .no {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: var(--laranja);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.card a:hover {
+  opacity: 0.9;
+}
