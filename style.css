@@ -1,18 +1,33 @@
+/* =========================
+   PALETA INSTITUCIONAL
+   ========================= */
 :root {
   --azul-escuro: #0A2A43;
-  --azul-claro: #1E88E5;
+  --azul-apoio: #1E88E5;
   --laranja: #F57C00;
-  --cinza: #ECEFF1;
-  --texto: #263238;
+  --cinza-fundo: #ECEFF1;
+  --cinza-borda: #E0E0E0;
+  --texto-principal: #263238;
+  --texto-secundario: #546E7A;
+}
+
+/* =========================
+   BASE
+   ========================= */
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--cinza);
-  color: var(--texto);
+  background-color: var(--cinza-fundo);
+  color: var(--texto-principal);
 }
 
+/* =========================
+   TOPO / CABEÇALHO
+   ========================= */
 .topo {
   background-color: var(--azul-escuro);
   color: white;
@@ -20,6 +35,21 @@ body {
   text-align: center;
 }
 
+.topo h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.topo p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* =========================
+   MAPA (INDEX)
+   ========================= */
 .mapa-container {
   display: flex;
   justify-content: center;
@@ -28,15 +58,15 @@ body {
 
 .mapa-rj {
   width: 100%;
-  max-width: 700px;
+  max-width: 720px;
 }
 
 .redec {
-  fill: var(--azul-claro);
+  fill: var(--azul-apoio);
   stroke: white;
   stroke-width: 2;
   cursor: pointer;
-  transition: 0.2s;
+  transition: fill 0.2s;
 }
 
 .redec:hover {
@@ -45,16 +75,24 @@ body {
 
 .label {
   fill: white;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   text-anchor: middle;
   pointer-events: none;
 }
 
+/* =========================
+   CONTEÚDO PADRÃO
+   ========================= */
 .conteudo {
-  padding: 20px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* =========================
+   CARDS — REDEC
+   ========================= */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -64,67 +102,83 @@ body {
 
 .card {
   background: white;
-  border-left: 6px solid var(--azul-claro);
-  border-radius: 4px;
+  border: 1px solid var(--cinza-borda);
+  border-left: 6px solid var(--azul-escuro);
   padding: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
 .card h3 {
-  margin: 0 0 10px 0;
+  margin: 0;
+  font-size: 17px;
   color: var(--azul-escuro);
-  font-size: 18px;
 }
 
-.card p {
-  margin: 4px 0;
+.card .subtitulo {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--texto-secundario);
+}
+
+/* =========================
+   PÁGINA DO MUNICÍPIO
+   ========================= */
+.bloco {
+  background: white;
+  margin-bottom: 24px;
+  padding: 16px 18px;
+  border-left: 6px solid var(--azul-escuro);
+}
+
+.bloco h2 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: var(--azul-escuro);
+  border-bottom: 1px solid var(--cinza-borda);
+  padding-bottom: 6px;
+}
+
+/* =========================
+   LINHAS DE INFORMAÇÃO
+   ========================= */
+.linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
 }
 
-.card .ok {
-  color: green;
+.linha:last-child {
+  border-bottom: none;
+}
+
+.linha span:first-child {
+  color: var(--texto-secundario);
+}
+
+.linha span:last-child {
   font-weight: bold;
+  color: var(--texto-principal);
 }
 
-.card .no {
-  color: #c62828;
-  font-weight: bold;
-}
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+@media (max-width: 600px) {
+  .linha {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
-  background: var(--laranja);
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 13px;
-}
-
-.card a:hover {
-  opacity: 0.9;
-}
-
-.card.resumo {
-  cursor: pointer;
-}
-
-.status {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.status.ok {
-  color: #2e7d32;
-}
-
-.status.parcial {
-  color: #f9a825;
-}
-
-.status.critico {
-  color: #c62828;
+  .linha span:last-child {
+    margin-top: 4px;
+  }
 }
