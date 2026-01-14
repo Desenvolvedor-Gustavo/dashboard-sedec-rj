@@ -1,49 +1,42 @@
+const urlParams = new URLSearchParams(window.location.search);
+const nomeMunicipio = urlParams.get("municipio");
+
 const SHEET_ID = "1KOOG5Udj8BeB9MsW5S8Fwdgtj2wvQr8WL42fkEoJuc0";
+const ABA = "municipios";
 
-const params = new URLSearchParams(window.location.search);
-const municipioSelecionado = decodeURIComponent(params.get("municipio") || "").trim();
-
-if (!municipioSelecionado) {
-  alert("Município não informado na URL.");
-}
-
-const url = `https://opensheet.elk.sh/${SHEET_ID}/municipios`;
+const url = `https://opensheet.elk.sh/${SHEET_ID}/${ABA}`;
 
 fetch(url)
-  .then(res => {
-    if (!res.ok) throw new Error("Erro ao acessar planilha");
-    return res.json();
-  })
+  .then(response => response.json())
   .then(dados => {
-
-    const m = dados.find(d =>
-      d.municipio &&
-      d.municipio.toLowerCase().trim() === municipioSelecionado.toLowerCase()
+    const municipio = dados.find(
+      m => m.municipio.toLowerCase() === nomeMunicipio.toLowerCase()
     );
 
-    if (!m) {
-      alert("Município não encontrado na planilha.");
+    if (!municipio) {
+      alert("Município não encontrado");
       return;
     }
 
-    document.getElementById("titulo").innerText = m.municipio;
-    document.getElementById("redec").innerText = "REDEC: " + m.redec;
+    document.getElementById("nome_municipio").innerText = municipio.municipio;
+    document.getElementById("redec").innerText = municipio.redec;
 
-    document.getElementById("pmrr").innerText = m.pmrr || "Não";
-    document.getElementById("pmrr_data").innerText = m.pmrr_data || "—";
+    document.getElementById("pmrr").innerText = municipio.pmrr || "Não informado";
+    document.getElementById("pmrr_data").innerText = municipio.pmrr_data || "—";
 
-    document.getElementById("simulado").innerText = m.simulado || "Não";
-    document.getElementById("qnt_simulado").innerText = m.qnt_simulado || "0";
-    document.getElementById("tipo_simulado").innerText = m.tipo_simulado || "—";
+    document.getElementById("simulado").innerText = municipio.simulado || "Não";
+    document.getElementById("qnt_simulado").innerText = municipio.qnt_simulado || "—";
+    document.getElementById("tipo_simulado").innerText = municipio.tipo_simulado || "—";
 
     document.getElementById("plano_contingencia").innerText =
-      m.plano_contingencia || "Não informado";
+      municipio.plano_contingencia || "Não informado";
 
-    document.getElementById("nupdec").innerText = m.nupdec || "0";
-    document.getElementById("colab_nupdec").innerText = m.colab_nupdec || "0";
+    document.getElementById("nupdec").innerText = municipio.nupdec || "0";
+    document.getElementById("colab_nupdec").innerText = municipio.colab_nupdec || "0";
 
-    document.getElementById("colab_s2id").innerText = m.colab_s2id || "0";
-    document.getElementById("carta_risco").innerText = m.carta_risco || "Não";
+    document.getElementById("colab_s2id").innerText = municipio.colab_s2id || "0";
+
+    document.getElementById("carta_risco").innerText = municipio.carta_risco || "Não";
   })
   .catch(err => {
     console.error(err);
